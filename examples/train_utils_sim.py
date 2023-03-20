@@ -1,6 +1,7 @@
 import copy
 import os
 
+from pathlib import Path
 import time
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -343,11 +344,15 @@ def is_positive_sample(traj, i, variant, task_name):
 
 def load_buffer(dataset_file, variant, task_aliasing_dict=None, multi_viewpoint=False, data_count_dict=None, split_pos_neg=False, num_traj_cutoff=None):
     print('loading buffer data from ', dataset_file)
-    task_name = str.split(dataset_file, '/')[3 if variant.cond_interfing else -3]
-    env_name = str.split(dataset_file, '/')[-3 if variant.cond_interfing else -4]
+    cond_interfing=(variant.target_dataset in ['interfering'])
+    task_name = str.split(dataset_file, '/')[3 if cond_interfing else -3]
+    env_name = str.split(dataset_file, '/')[-3 if cond_interfing else -4]
     if task_aliasing_dict and task_name in task_aliasing_dict:
         task_name = task_aliasing_dict[task_name]
-    trajs = np.load(os.environ['DATA'] + dataset_file, allow_pickle=True)
+    df = os.environ['DATA'] + dataset_file
+    if not Path(df).exists():
+        df = dataset_file
+    trajs = np.load(df, allow_pickle=True)
     if data_count_dict is not None:
         if env_name not in data_count_dict:
             data_count_dict[env_name] = {}

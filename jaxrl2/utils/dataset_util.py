@@ -1,6 +1,12 @@
+
+import json
+from collections import OrderedDict
+
 from examples.configs.dataset_config_real import *
 from examples.configs.toykitchen_pickplace_dataset import *
 from examples.configs.get_door_openclose_data import *
+from examples.train_utils import *
+from examples.train_pixels import *
 
 import numpy as np
 from gym.spaces import Box, Dict
@@ -138,6 +144,8 @@ def get_train_target_tasks(variant):
             target_train_tasks, target_eval_tasks = get_toykitchen6_carrot_in_pan()
         elif variant.target_dataset == 'toykitchen6_big_corn_in_big_pot':
             target_train_tasks, target_eval_tasks = get_toykitchen6_big_corn_in_big_pot()
+        elif variant.target_dataset == 'toykitchen1_pickplace':
+            target_train_tasks, target_eval_tasks = get_toykitchen1_pickplace()
         elif variant.target_dataset == 'toykitchen1_pickplace_cardboardfence_reversible':
             target_train_tasks, target_eval_tasks = get_toykitchen1_pickplace_cardboardfence_reversible()
         elif variant.target_dataset == 'toykitchen2_sushi_targetdomain':

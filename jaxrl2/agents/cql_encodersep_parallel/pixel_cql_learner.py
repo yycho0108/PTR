@@ -745,7 +745,8 @@ class PixelCQLLearnerEncoderSepParallel(Agent):
         self.is_replicated = False # stored in the checkpoint, so we need to reset this
         
         print('restored from ', dir)
-        
+
+PixelCQLLearner = PixelCQLLearnerEncoderSepParallel
 
 @functools.partial(jax.jit)
 def get_action(obs_dict, actor):

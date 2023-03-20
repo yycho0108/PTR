@@ -1,4 +1,7 @@
 
+import numpy as np
+import gym
+
 from jaxrl2.wrappers import FrameStack
 from jaxrl2.wrappers.reaching_reward_wrapper import ReachingReward
 from jaxrl2.wrappers.prev_action_wrapper import PrevActionStack

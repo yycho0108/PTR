@@ -99,6 +99,7 @@ class WandBLogger(object):
             os.environ['WANDB_USERNAME'] = wandb_config['WANDB_USERNAME']
             os.environ["WANDB_MODE"] = "run"
 
+            wandb.login(anonymous='allow', relogin=False, force=False)
             wandb.init(
                 config=variant,
                 project=project,
@@ -106,7 +107,7 @@ class WandBLogger(object):
                 id=experiment_id,
                 settings=wandb.Settings(start_method="thread"),
                 group=group_name,
-                entity=team
+                #entity=team
             )
             self.output_dir = output_dir
 

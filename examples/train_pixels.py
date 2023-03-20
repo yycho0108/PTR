@@ -6,14 +6,14 @@ from jaxrl2.data.utils import get_task_id_mapping
 from jaxrl2.utils.general_utils import AttrDict
 import os
 
-from jaxrl2.agents.cql.pixel_cql_learner import PixelCQLLearner
-from jaxrl2.agents import PixelIQLLearner
-from jaxrl2.agents import IQLLearner
-from jaxrl2.agents.sac.sac_learner import SACLearner
-from jaxrl2.agents.cql.pixel_cql_learner import PixelCQLLearner
-from jaxrl2.agents.sarsa import PixelSARSALearner
-from jaxrl2.agents.cql_parallel_overall.pixel_cql_learner import PixelCQLParallelLearner
-from jaxrl2.agents.cql_encodersep.pixel_cql_learner import PixelCQLLearnerEncoderSep
+#from jaxrl2.agents.cql.pixel_cql_learner import PixelCQLLearner
+#from jaxrl2.agents import PixelIQLLearner
+#from jaxrl2.agents import IQLLearner
+#from jaxrl2.agents.sac.sac_learner import SACLearner
+#from jaxrl2.agents.cql.pixel_cql_learner import PixelCQLLearner
+#from jaxrl2.agents.sarsa import PixelSARSALearner
+#from jaxrl2.agents.cql_parallel_overall.pixel_cql_learner import PixelCQLParallelLearner
+#from jaxrl2.agents.cql_encodersep.pixel_cql_learner import PixelCQLLearnerEncoderSep
 from jaxrl2.agents.cql_encodersep_parallel.pixel_cql_learner import PixelCQLLearnerEncoderSepParallel
 
 from jaxrl2.wrappers.prev_action_wrapper import PrevActionStack

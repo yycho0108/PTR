@@ -151,8 +151,8 @@ if __name__ == '__main__':
     variant, args = parse_training_args(train_args_dict, parser)
 
     filesys = 'AZURE_' if args.file_system == 'azure' else ''
-    prefix = '/data/spt_data/experiments/' if args.azure else os.environ[filesys + 'EXP']
     if args.restore_reward_path:
+        prefix = '/data/spt_data/experiments/' if args.azure else os.environ[filesys + 'EXP']
         local_reward_restore_path = os.environ[filesys + 'EXP'] + '/' + args.restore_reward_path
         full_reward_restore_path = prefix + '/' + args.restore_reward_path
         config_file_reward = '/'.join(local_reward_restore_path.split('/')[:-1]) + '/config.json'
