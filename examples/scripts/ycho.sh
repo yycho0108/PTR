@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+python3 examples/launch_train_real_cql.py --prefix resnet34_all_pp_data --cql_alpha 10 --encoder_type resnet_34_v1 --algorithm cql_encodersep_parallel --dataset all_pickplace_except_tk6 --target_dataset toykitchen6_pickplace_reversible --batch_size 64 --wandb_project try-ptr-notk6 --multi_viewpoint 0 --add_prev_actions 0 --policy_encoder_type same --target_mixing_ratio 0.9 --use_action_sep 1 --use_basis_projection 0 --discount 0.96 --max_q_backup 1 --num_final_reward_steps 3 --term_as_rew 1 --encoder_norm group --use_spatial_learned_embeddings 1 --target_entropy_factor 1.0 --use_pixel_sep 1 --min_q_version 3 --q_dropout_rate 0.0 --offline_finetuning_start 160000
